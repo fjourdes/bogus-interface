@@ -1,0 +1,4 @@
+[submodule "extern/so-bogus"]
+	path = extern/so-bogus
+	url = https://github.com/fjourdes/so-bogus.git
+	branch = main
