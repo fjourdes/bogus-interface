@@ -1,6 +1,7 @@
 #ifndef ARGUS_CLOTH_FRICTION_SOLVER_HH
 #define ARGUS_CLOTH_FRICTION_SOLVER_HH
 
+#include "Argus.hh"
 #include "MatrixTypes.hh"
 
 #include "SolverOptions.hh"
@@ -11,7 +12,7 @@ namespace argus {
 struct ClothFrictionData ;
 
 //! Class for solving a ClothFrictionData contact problem
-class ClothFrictionSolver {
+class ARGUS_API ClothFrictionSolver {
 public:
 
 	ClothFrictionSolver( const ClothFrictionData& data )

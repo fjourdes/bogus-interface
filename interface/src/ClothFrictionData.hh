@@ -2,13 +2,13 @@
 #define ARGUS_CLOTH_FRICTION_DATA_HH
 
 #include "MatrixTypes.hh"
-
+#include "Argus.hh"
 #include <bogus/Core/Block.hpp>
 
 namespace argus {
 
 //! Representation of a cloth frictional contact problem, with I/O capabilities
-struct ClothFrictionData {
+struct ARGUS_API ClothFrictionData {
 
 	typedef bogus::SparseBlockMatrix< Mat3 > StiffnessMatrixType ;
 	typedef bogus::SparseBlockMatrix< Mat3 > ContactBasisMatrix ;

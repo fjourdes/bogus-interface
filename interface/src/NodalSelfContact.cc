@@ -25,7 +25,13 @@ void printMatrix(SBM M, string name) {
 	int n = M.rowsOfBlocks();
 	string file = "make" + name + ".m";
 	ofstream out(file);
-	double row[3][n*3];
+
+	double* row[3] = { nullptr, nullptr, nullptr };
+	for (int i = 0; i < 3; ++i)
+	{
+		row[i] = new double[n*3];
+	}
+
 	out << name << " = [" << std::endl;
 	for (int i = 0; i < n; i++) {
 		for (int ii = 0; ii < 3; ii++) {
@@ -48,6 +54,11 @@ void printMatrix(SBM M, string name) {
 		}
 	}
 	out << "]";
+
+	for (int i = 0; i < 3; ++i)
+	{
+		delete[] row[i];
+	}
 }
 
 struct NodalOverrideFunctor : public EvalFunctor
