@@ -1,0 +1,18 @@
+# Config file for the Argus package
+# Defines the imported target Argus::interface and exeuctable Argus::loader
+
+@PACKAGE_INIT@
+
+list(FIND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}" HAS_ARGUS_CMAKE_MODULE_PATH)
+
+if(HAS_ARGUS_CMAKE_MODULE_PATH EQUAL -1)
+    list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR})
+endif()
+
+find_package(Bogus REQUIRED)
+
+if( NOT TARGET Argus::interface )
+    include("${CMAKE_CURRENT_LIST_DIR}/ArgusTargets.cmake")
+endif()
+
+check_required_components(Argus)
