@@ -49,7 +49,7 @@ install(TARGETS interface loader
 include(CMakePackageConfigHelpers)
 
 configure_package_config_file(ArgusConfig.cmake.in
-    ${CMAKE_BINARY_DIR}/Bogus/ArgusConfig.cmake
+    ${CMAKE_BINARY_DIR}/Argus/ArgusConfig.cmake
     INSTALL_DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/Argus"
 )
 
