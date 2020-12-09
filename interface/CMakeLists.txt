@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.10)
 
 project(ArgusInterface)
 
+include(GNUInstallDirs)
+
 SET( ARGUS_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/.. )
 
 ####
@@ -19,7 +21,7 @@ file(GLOB HEADERS src/*.hh)
 
 add_library(interface SHARED ${SRC_LIST})
 target_include_directories(interface PUBLIC 
-                           $<INSTALL_INTERFACE:include>
+                           $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/bogus-interface>
                            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src> )
 
 target_link_libraries(interface PUBLIC Bogus::bogus )
@@ -33,10 +35,9 @@ target_link_libraries(loader interface )
 
 add_executable(Argus::loader ALIAS loader)
 
-include(GNUInstallDirs)
 
 # Install
-install( FILES ${HEADERS} DESTINATION include/${ARGUS_INTERFACE_LIBNAME})
+install( FILES ${HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/bogus-interface)
 
 install(TARGETS interface loader
         EXPORT ArgusTargets
