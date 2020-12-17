@@ -127,7 +127,7 @@ double ClothFrictionSolver::contactSolve(const SolverOptions &options, DynVec &v
 	double res = solveContact(options, v, r, stats);
 
 #ifndef SILENCE_ARGUS
-	std::cout << "ClothFriction: res = " << res << " \t time=" << stats.time << "s" << std::endl;
+	std::cout << "ClothFriction: nContacts= " << m_data.nContacts() << " res = " << res << " \t time=" << stats.time << "s" << std::endl;
 #endif
 
 	return res ;
